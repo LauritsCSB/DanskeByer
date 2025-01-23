@@ -14,14 +14,11 @@
 
 @if (Model != null && Model.Any()) 
 {
-    <table>
+    <table class="table">
         <thead>
             <tr>
                 <th>
                     @Html.DisplayNameFor(Model => Model.Name)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(Model => Model.Population)
                 </th>
             </tr>
         </thead>
@@ -32,11 +29,21 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Population)
-                    </td>
                 </tr>
             }
+        </tbody>
+    </table>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Total befolkning fra søgning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.Sum(c => c.Population)</td>
+            </tr>
         </tbody>
     </table>
 }

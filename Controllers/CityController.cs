@@ -33,13 +33,7 @@ namespace DanskeByer.Controllers
 
             var totalPopulation = cities.Sum(c => c.Population);
 
-            var viewModel = new CitySearchViewModel
-            {
-                Cities = cityList,
-                TotalPopulation = totalPopulation
-            };
-
-            return View(cities.ToList());
+            return View(cityList);
         }
     }
 }
